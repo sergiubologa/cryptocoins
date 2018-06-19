@@ -1,25 +1,9 @@
-'use strict';
-
-/* ------------------------------------ *\
-    Includes
-\* ------------------------------------ */
-
-var gulp = require('gulp');
-// Pump - https://github.com/mafintosh/pump
-var pump = require('pump');
-// SVGO - https://www.npmjs.com/package/gulp-svgmin
-var svgmin = require('gulp-svgmin');
-// Iconfont - https://github.com/nfroidure/gulp-iconfont
-var iconfont = require('gulp-iconfont');
-// Iconfont CSS - https://github.com/backflip/gulp-iconfont-css
-var iconfontCss = require('gulp-iconfont-css');
-
-var fontName = 'cryptocoins';
-
-
-/* ------------------------------------ *\
-    Paths
-\* ------------------------------------ */
+const gulp = require('gulp');
+const pump = require('pump');
+const svgmin = require('gulp-svgmin');
+const iconfont = require('gulp-iconfont');
+const iconfontCss = require('gulp-iconfont-css');
+const fontName = 'cryptocoins';
 
 const paths = {
   input: 'SVG/**/*.svg',
@@ -27,12 +11,7 @@ const paths = {
   font_output: 'webfont/',
 }
 
-
-/* ------------------------------------ *\
-    Tasks
-\* ------------------------------------ */
-
-gulp.task('optimize', function (cb) {
+gulp.task('optimize', cb => {
   console.log('-- Optimizing SVG files');
   pump([
     gulp.src(paths.input),
@@ -41,8 +20,7 @@ gulp.task('optimize', function (cb) {
   ], cb );
 });
 
-
-gulp.task('webfont', function (cb) {
+gulp.task('webfont', cb => {
   console.log('-- Generating webfont');
   pump([
     gulp.src(paths.input),
@@ -66,5 +44,4 @@ gulp.task('webfont', function (cb) {
 });
 
 
-gulp.task('default', ['optimize', 'webfont'], function (){
-});
+gulp.task('default', ['optimize', 'webfont'], () => {});

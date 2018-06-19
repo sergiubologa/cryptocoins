@@ -14,10 +14,10 @@
   ],
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-iconfont": "^8.0.1",
+    "gulp-iconfont": "^10.0.1",
     "gulp-iconfont-css": "^2.1.0",
     "gulp-svgmin": "^1.2.4",
-    "pump": "^1.0.2"
+    "pump": "^3.0.0"
   },
   "repository": {
     "type": "git",
