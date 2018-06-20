@@ -1152,3 +1152,7 @@
 .cc.ZEIT::before {
   content: "\E11B";
 }
+
+.cc.default::before {
+  content: "\E11C";
+}
