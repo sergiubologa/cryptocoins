@@ -1,5 +1,3 @@
-/*! Cryptocoins - cryptocurrency icon font | https://github.com/allienworks/cryptocoins */
-
 @font-face {
   font-family: "<%= fontName %>";
   src: url('<%= fontPath %><%= fontName %>.woff2') format('woff2'),
@@ -7,7 +5,6 @@
     url('<%= fontPath %><%= fontName %>.ttf') format('truetype');
 }
 
-/* .<%= cssClass %>:before { */
 .cc::before {
   font-family: "<%= fontName %>";
     -webkit-font-smoothing: antialiased;
@@ -19,9 +16,13 @@
   text-decoration: none;
   text-transform: none;
 }
-
-<% _.each(glyphs, function(glyph) { %>
-.<%= cssClass %>.<%= glyph.fileName %>::before {
-  content: "\<%= glyph.codePoint %>";
-}
-<% }); %>
+<% _.each(glyphs, function(glyph) { if (glyph.fileName === 'default') { %>
+  .<%= cssClass %>.<%= glyph.fileName %>::before {
+    content: "\<%= glyph.codePoint %>";
+  }
+<% }}); %>
+<% _.each(glyphs, function(glyph) { if (glyph.fileName !== 'default') { %>
+  .<%= cssClass %>.<%= glyph.fileName %>::before {
+    content: "\<%= glyph.codePoint %>";
+  }
+<% }}); %>
